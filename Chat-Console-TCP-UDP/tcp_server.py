@@ -31,7 +31,6 @@ def handle(client):
 #Hàm chấp nhận kết nối và quản lý các máy khách
 def receive():
     while True:
-
         #Chấp nhận kết nối và lưu trữ địa chỉ IP của client
         client, address = server.accept()
         print(f"Ket noi voi {str(address)}")

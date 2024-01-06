@@ -24,8 +24,7 @@ def receive():
         if client_address not in clients:
             print(f'Connected to: {str(client_address)}')
             clients.add(client_address)
-
-        broadcast(message, client_address)
+            broadcast(message, client_address)
 
 # Create a thread to run the receive function
 receive_thread = threading.Thread(target=receive)

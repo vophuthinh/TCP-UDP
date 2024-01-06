@@ -11,7 +11,6 @@ client.send(nickname.encode('ascii'))
 def receive():
     while True:
         try:
-            
             message = client.recv(1024).decode('ascii') 
             print(message)
         except:

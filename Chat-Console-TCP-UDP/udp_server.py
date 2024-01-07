@@ -4,20 +4,21 @@ import socket
 host = "127.0.0.1"
 port = 1111
 
-# Create a server socket and configure it
+# Tạo một socket máy chủ và cấu hình của nó
 server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#Gán địa chỉ IP vào cổng cho socket máy chủ
 server.bind((host, port))
 
-# An empty set to store the IP addresses of connected clients
+# Danh sách rỗng sẽ chưa các dối tượng địa chỉ IP của máy khách kết nối đến máy chủ
 clients = set()
 
-# Function to broadcast messages to all clients
+# Bản tin gủi đến các máy khách
 def broadcast(message, client_address):
     for addr in clients:
         if addr != client_address:
             server.sendto(message, addr)
 
-# Function to receive messages from clients
+# Hàm để nhắn tin nhắn từ các máy khách
 def receive():
     while True:
         message, client_address = server.recvfrom(1024)
@@ -26,6 +27,6 @@ def receive():
             clients.add(client_address)
             broadcast(message, client_address)
 
-# Create a thread to run the receive function
+# Tạo một luồng để chạy chức năng nhận
 receive_thread = threading.Thread(target=receive)
 receive_thread.start()

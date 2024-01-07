@@ -32,3 +32,6 @@ def receive():
 # Tạo một luồng để chạy chức năng nhận
 receive_thread = threading.Thread(target=receive)
 receive_thread.start()
+
+print("Server is listening...")
+receive()

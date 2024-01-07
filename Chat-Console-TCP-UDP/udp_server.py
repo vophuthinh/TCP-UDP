@@ -22,10 +22,12 @@ def broadcast(message, client_address):
 def receive():
     while True:
         message, client_address = server.recvfrom(1024)
+        
         if client_address not in clients:
             print(f'Connected to: {str(client_address)}')
             clients.add(client_address)
-            broadcast(message, client_address)
+
+        broadcast(message, client_address)
 
 # Tạo một luồng để chạy chức năng nhận
 receive_thread = threading.Thread(target=receive)

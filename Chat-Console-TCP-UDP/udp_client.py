@@ -8,7 +8,6 @@ server_address = ('127.0.0.1', 1111)
 client.sendto(nickname.encode('ascii'), server_address)
 
 #Hàm để nhận và hiển thị tin nhắn từ máy chủ
-# Function to receive messages from the server
 def receive():
     while True:
         try:
@@ -19,7 +18,6 @@ def receive():
             print("Da co loi xay ra!")
             client.close()
             break
-
 
 # Hàm để nhập và gửi tin nhắn đến máy chủ
 def write():
